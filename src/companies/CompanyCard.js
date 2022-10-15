@@ -12,6 +12,7 @@ import './CompanyCard.css';
 function CompanyCard({ name, description, logoUrl, handle }) {
 	console.debug('CompanyCard', logoUrl);
 
+	// displaying the company card on the screen
 	return (
 		<Link className="CompanyCard card" to={`/companies/${handle}`}>
 			<div className="card-body">

@@ -17,21 +17,25 @@ import LoadingSpinner from '../common/LoadingSpinner';
 function CompanyList() {
 	console.debug('CompanyList');
 
+	// setting companies in state
 	const [companies, setCompanies] = useState(null);
 
+	// generating list of companies
 	useEffect(function getCompaniesOnMount() {
 		console.debug('CompanyList useEffect getCompaniesOnMount');
 		search();
 	}, []);
 
-	/** Triggered by search form submit; reloads companies. */
+	// trigger another API call if search is entered
 	async function search(name) {
 		let companies = await JoblyApi.getCompanies(name);
 		setCompanies(companies);
 	}
 
+	// displaying the spinner until the API call returns the companies data
 	if (!companies) return <LoadingSpinner />;
 
+	// displaying the company list on the screen
 	return (
 		<div className="CompanyList col-md-8 offset-md-2">
 			<SearchForm searchFor={search} />

@@ -18,6 +18,7 @@ To get this application running, download the code and run the following in the 
 4. `nodemon server.js`
 
 #### Frontend Application
+Make sure that PostgreSQL is running, and then you can run the commands below that will run the Backend and Frontend together, using the ***concurrently*** package.
 
 1. `npm i`
 2. `npm start`

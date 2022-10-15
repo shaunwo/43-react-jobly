@@ -1,8 +1,7 @@
 import React from 'react';
 import './LoadingSpinner.css';
 
-/** Loading message used by components that fetch API data. */
-
+// dispalying the loading spinner on the screen while awaiting data from the API
 function LoadingSpinner() {
 	return <div className="LoadingSpinner">Loading...</div>;
 }

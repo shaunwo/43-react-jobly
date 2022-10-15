@@ -16,9 +16,10 @@ import './SearchForm.css';
 function SearchForm({ searchFor }) {
 	console.debug('SearchForm', 'searchFor=', typeof searchFor);
 
+	// setting search in state
 	const [searchTerm, setSearchTerm] = useState('');
 
-	/** Tell parent to filter */
+	// sending the search up to the parent component
 	function handleSubmit(evt) {
 		// take care of accidentally trying to search for just spaces
 		evt.preventDefault();
@@ -26,18 +27,19 @@ function SearchForm({ searchFor }) {
 		setSearchTerm(searchTerm.trim());
 	}
 
-	/** Update form fields */
+	// updating the search form field
 	function handleChange(evt) {
 		setSearchTerm(evt.target.value);
 	}
 
+	// displaying the search form on the screen
 	return (
 		<div className="SearchForm mb-4">
 			<form className="form-inline" onSubmit={handleSubmit}>
 				<input
 					className="form-control form-control-lg flex-grow-1"
 					name="searchTerm"
-					placeholder="Enter something to search on..."
+					placeholder="Enter something to search for..."
 					value={searchTerm}
 					onChange={handleChange}
 				/>
