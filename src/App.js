@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import CompanyList from './companies/CompanyList';
-import CompanyDetail from './companies/CompanyDetail';
-import JobList from './jobs/JobList';
+import Home from './components/Home';
+import CompanyList from './components/companies/CompanyList';
+import CompanyDetail from './components/companies/CompanyDetail';
+import JobList from './components/jobs/JobList';
 import Login from './Login';
 import Signup from './Signup';
 import Profile from './Profile';
-import Navigation from './Navigation';
+import Navigation from './paths/Navigation';
 import './App.css';
 
 function App() {
