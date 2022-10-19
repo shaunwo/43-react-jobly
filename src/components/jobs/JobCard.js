@@ -11,7 +11,7 @@ import './JobCard.css';
  * JobCardList -> JobCard
  */
 
-function JobCard({ id, title, salary, equity, companyName }) {
+function JobCard({ id, title, salary, equity, companyName, companyHandle }) {
 	console.debug('JobCard');
 
 	//const { hasAppliedToJob, applyToJob } = useContext(UserContext);
@@ -40,16 +40,19 @@ function JobCard({ id, title, salary, equity, companyName }) {
 	// displaying the job card on the screen
 	return (
 		<div className="JobCard card">
-			{' '}
 			<div className="card-body">
 				<h6 className="card-title">{title}</h6>
-				<p>{companyName}</p>
+				<p>
+					<a href={'companies/' + companyHandle}>
+						{companyName}
+					</a>
+				</p>
 				{salary && (
 					<div>
 						<small>Salary: ${formatSalary(salary)}</small>
 					</div>
 				)}
-				{equity !== undefined && (
+				{equity && (
 					<div>
 						<small>Equity: {equity}</small>
 					</div>

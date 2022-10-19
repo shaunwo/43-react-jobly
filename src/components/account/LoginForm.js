@@ -38,6 +38,7 @@ function LoginForm({ login }) {
 	// handles the login and passes to the CompaniesList, if authenticated... otherwise, passes back to form with the errors
 	async function handleSubmit(evt) {
 		evt.preventDefault();
+		console.log(formData);
 		let result = await login(formData);
 		if (result.success) {
 			navigate('/companies');

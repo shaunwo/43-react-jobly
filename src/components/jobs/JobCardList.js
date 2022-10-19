@@ -25,6 +25,7 @@ function JobCardList({ jobs, apply }) {
 					salary={job.salary}
 					equity={job.equity}
 					companyName={job.companyName}
+					companyHandle={job.companyHandle}
 				/>
 			))}
 		</div>

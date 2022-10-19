@@ -6,8 +6,8 @@ import CompanyDetail from '../components/companies/CompanyDetail';
 import JobList from '../components/jobs/JobList';
 import LoginForm from '../components/account/LoginForm';
 import SignupForm from '../components/account/SignupForm';
-import Profile from '../components/Profile';
-import PrivateRoute from './PrivateRoute';
+import ProfileForm from '../components/account/ProfileForm';
+import PrivateRoutes from './PrivateRoutes';
 
 /** Site-wide routes.
  *
@@ -18,13 +18,7 @@ import PrivateRoute from './PrivateRoute';
  */
 
 function Paths({ login, signup }) {
-	console.debug(
-		'Routes',
-		`login=${typeof login}`,
-		`register=${typeof register}`
-	);
-
-	//
+	// definining the available Routes for the application
 	return (
 		<div className="pt-5">
 			<Routes>
@@ -39,14 +33,25 @@ function Paths({ login, signup }) {
 					path="/signup"
 					element={<SignupForm signup={signup} />}
 				/>
-				<Route exact path="/companies" element={<CompanyList />} />
-				<Route exact path="/jobs" element={<JobList />} />
-				<Route
-					exact
-					path="/companies/:handle"
-					element={<CompanyDetail />}
-				/>
-				<Route exact path="/profile" element={<Profile />} />
+				<Route element={<PrivateRoutes />}>
+					<Route
+						exact
+						path="/companies"
+						element={<CompanyList />}
+					/>
+					<Route exact path="/jobs" element={<JobList />} />
+					<Route
+						exact
+						path="/companies/:handle"
+						element={<CompanyDetail />}
+					/>
+					<Route
+						exact
+						path="/profile"
+						element={<ProfileForm />}
+					/>
+				</Route>
+				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
 		</div>
 	);

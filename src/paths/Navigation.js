@@ -15,9 +15,10 @@ function Navigation({ logout }) {
 	const { currentUser } = useContext(UserContext);
 	console.debug('Navigation', 'currentUser=', currentUser);
 
+	// building the navitation options for a user that is signed in
 	function loggedInNav() {
 		return (
-			<ul className="navbar-nav ml-auto">
+			<ul className="navbar-nav ms-auto">
 				<li className="nav-item mr-4">
 					<NavLink className="nav-link" to="/companies">
 						Companies
@@ -43,9 +44,10 @@ function Navigation({ logout }) {
 		);
 	}
 
+	// building the navitation options for a user that is NOT signed in
 	function loggedOutNav() {
 		return (
-			<ul className="navbar-nav ml-auto">
+			<ul className="navbar-nav ms-auto">
 				<li className="nav-item mr-4">
 					<NavLink className="nav-link" to="/login">
 						Login
@@ -59,9 +61,13 @@ function Navigation({ logout }) {
 			</ul>
 		);
 	}
+
+	let homeLink = '/';
+	if (currentUser) homeLink = '/companies';
+	console.log('homeLink: ' + homeLink);
 	return (
 		<nav className="Navigation navbar navbar-expand-md">
-			<Link className="navbar-brand" to="/">
+			<Link className="navbar-brand" to={homeLink}>
 				Jobly
 			</Link>
 			{currentUser ? loggedInNav() : loggedOutNav()}

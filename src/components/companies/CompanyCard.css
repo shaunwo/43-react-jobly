@@ -9,6 +9,7 @@
 
 .CompanyCard img {
 	width: 50px;
+	float: right;
 }
 
 .CompanyCard:hover {

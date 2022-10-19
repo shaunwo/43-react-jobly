@@ -1,9 +1,24 @@
 .Navigation {
-	background-color: white;
-	border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+	background-color: slategray;
+	border-bottom: 2px solid black;
+	padding: 1rem;
+}
+
+.nav-link {
+	color: white;
 }
 
 .nav-link.active {
+	color: white !important;
 	font-weight: bold;
-	color: black;
+}
+
+.navbar-nav {
+	float: right;
+}
+
+.navbar-brand {
+	font-size: 150%;
+	font-weight: bold;
+	color: white;
 }

@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
 import Navigation from './paths/Navigation';
 import Paths from './paths/Routes';
-import './App.css';
 
 import LoadingSpinner from './components/common/LoadingSpinner';
 import JoblyApi from './private/api/api';
@@ -92,8 +91,10 @@ function App() {
 	async function login(loginData) {
 		console.log('Inside the function!');
 		try {
+			console.log('inside the try');
 			let token = await JoblyApi.login(loginData);
 			setToken(token);
+			console.log('token:' + token);
 			return { success: true };
 		} catch (errors) {
 			console.error('login failed', errors);
@@ -114,7 +115,7 @@ function App() {
 	}
 
 	// displaying the spinner on the screen if no other data has been loaded, yet
-	//if (!infoLoaded) return <LoadingSpinner />;
+	if (!infoLoaded) return <LoadingSpinner />;
 
 	// displaying the routes and such (for now) on page
 	return (
