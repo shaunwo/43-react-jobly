@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './JobCard.css';
-//import UserContext from '../auth/UserContext';
+import UserContext from '../../private/auth/UserContext';
 
 /** Show limited information about a job.
  *
@@ -14,8 +14,8 @@ import './JobCard.css';
 function JobCard({ id, title, salary, equity, companyName, companyHandle }) {
 	console.debug('JobCard');
 
-	//const { hasAppliedToJob, applyToJob } = useContext(UserContext);
-	/* const [applied, setApplied] = useState();
+	const { hasAppliedToJob, applyToJob } = useContext(UserContext);
+	const [applied, setApplied] = useState();
 
 	React.useEffect(
 		function updateAppliedStatus() {
@@ -33,9 +33,11 @@ function JobCard({ id, title, salary, equity, companyName, companyHandle }) {
 	// apply for a job
 	async function handleApply(evt) {
 		if (hasAppliedToJob(id)) return;
+
+		// applyToJob is a method within the JoblyApi class
 		applyToJob(id);
 		setApplied(true);
-	} */
+	}
 
 	// displaying the job card on the screen
 	return (
@@ -57,16 +59,17 @@ function JobCard({ id, title, salary, equity, companyName, companyHandle }) {
 						<small>Equity: {equity}</small>
 					</div>
 				)}
-				<button className="btn btn-danger font-weight-bold text-uppercase float-right">
-					Apply
+				<button
+					className="btn btn-info font-weight-bold float-right"
+					onClick={handleApply}
+					disabled={applied}
+				>
+					{applied ? 'Applied' : 'Apply'}
 				</button>
 			</div>
 		</div>
 	);
 }
-// add below the {' '} above: 			{applied}
-// add inside the opening button tag above: 	onClick={handleApply} disabled={applied}
-// Add inside button tag above: {applied ? 'Applied' : 'Apply'}
 
 // format salary with commas in between numbers
 function formatSalary(salary) {
