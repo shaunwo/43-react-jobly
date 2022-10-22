@@ -4,7 +4,7 @@ This is an exercise to practice React, and PostgreSQL with relationships, throug
 
 ## Diagram of Components to Build for Application
 
-![React Jobly Components](https://github.com/shaunwo/43-react-jobly/blob/5708f3cd654582fc3d8987865b91d4bba350053a/React%20Jobly%20Components.png)
+![React Jobly Components](https://github.com/shaunwo/43-react-jobly/blob/e5f50b7449bbf9adf842058b3984bbfff0b3cdd2/React%20Jobly%20Components.png)
 
 ### Instructions for Running Code
 
