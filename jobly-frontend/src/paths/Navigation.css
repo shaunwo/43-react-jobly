@@ -7,8 +7,13 @@
 .nav-link {
 	color: white;
 }
+.nav-link:hover,
+.navbar-brand:hover {
+	color: lightyellow !important;
+}
 
-.nav-link.active {
+.nav-link.active,
+.navbar-brand.active {
 	color: white !important;
 	font-weight: bold;
 }
@@ -20,5 +25,5 @@
 .navbar-brand {
 	font-size: 150%;
 	font-weight: bold;
-	color: white;
+	color: white !important;
 }

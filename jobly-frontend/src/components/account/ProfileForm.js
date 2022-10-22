@@ -34,7 +34,6 @@ function ProfileForm() {
 	const [formErrors, setFormErrors] = useState([]);
 
 	const [saveConfirmed, setSaveConfirmed] = useState(false);
-	// const [saveConfirmed, setSaveConfirmed] = useTimedMessage()
 
 	/** on form submit:
 	 * - attempt save to backend & report any errors
@@ -65,8 +64,13 @@ function ProfileForm() {
 			return;
 		}
 
+		// reset form data
 		setFormData((f) => ({ ...f, password: '' }));
+
+		// reset form errors
 		setFormErrors([]);
+
+		// trigger the "success" alert message the appears at the bottom of the form
 		setSaveConfirmed(true);
 
 		// trigger reloading of user information throughout the site

@@ -36,8 +36,7 @@ function Navigation({ logout }) {
 				</li>
 				<li className="nav-item">
 					<Link className="nav-link" to="/" onClick={logout}>
-						Log out{' '}
-						{currentUser.first_name || currentUser.username}
+						Log out {currentUser.username}
 					</Link>
 				</li>
 			</ul>
